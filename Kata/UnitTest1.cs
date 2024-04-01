@@ -6,6 +6,23 @@ namespace Kata
     [TestFixture]
     public class Tests
     {
+
+        [Test]
+        public void ReverseTest()
+        {
+            var testList = new List<string>() 
+            { 
+                "this", "is", "a", "test"
+            };
+
+            var result = Kata.Reverse(testList);
+
+            Assert.AreEqual(testList[0], result[3]);
+            Assert.AreEqual(testList[1], result[2]);
+            Assert.AreEqual(testList[2], result[1]);
+            Assert.AreEqual(testList[3], result[0]);
+        }
+
         [Test]
         public void SplitTest()
         {

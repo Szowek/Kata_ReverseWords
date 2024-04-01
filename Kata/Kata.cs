@@ -12,6 +12,32 @@ namespace Kata
         // 1. "this is a test" -> ["this", "is", "a", "test"] SPLIT
         // 2. ["this", "is", "a", "test"] -> ["test", "a", "is", "this"] REVERSE
         // 3. ["test", "a", "is", "this"] -> "test a is this" JOIN
+        public static string Join(List<string> list, char separator)
+        {
+            var sb = new StringBuilder();
+            var result = "";
+            for (int i = 0; i < list.Count; i++)
+            {
+                sb.Append(list[i]);
+                if (i != list.Count - 1)
+                {
+                    sb.Append(separator);
+                }
+            }
+            result = sb.ToString();
+            return result;
+        }
+
+        public static List<string> Reverse(List<string> list)
+        {
+            var reversedList = new List<string>();
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                reversedList.Add(list[i]);
+            }
+            return reversedList;
+        }
+
         public static List<string> Split(string input, char separator)
         {
             var result = new List<string>();
@@ -34,7 +60,14 @@ namespace Kata
         }
         public static string ReverseWords(string str)
         {
-            return "";
+            //var splittedWords = Split(str, ' ');
+            //var reversedWords = Reverse(splittedWords);
+            //var result = Join(reversedWords, ' ');
+            //return result;
+            var splittedWords = str.Split(' ');
+            var reversedWords = splittedWords.Reverse();
+            var result = string.Join(' ', reversedWords);
+            return result;
         }
     }
 }
